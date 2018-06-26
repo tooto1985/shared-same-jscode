@@ -3,15 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 	<script src="tools.js"></script>
 	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			document.body.innerHTML += tools.version;
-			tools.yourfunction();
-		}, false);
+		$(function() {
+			$("[name='num']").on("keyup keydown keypress blur change", function() {
+				if (tools.checkdata($(this).val()))  {
+					$(this).css("background-color", "green");
+				} else {
+					$(this).css("background-color", "red");
+				}
+			})
+		});
 	</script>
 </head>
 <body>
-
+	<form action="/send" method="GET">
+		<input type="text" placeholder="請輸入數字" name="num">
+		<input type="submit" value="送出">
+	</form>
 </body>
 </html>
