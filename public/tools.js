@@ -13,9 +13,12 @@
   name: 'tools', // global name for via <script> tag
   version: '0.0.2',
   yourfunction: function () {
-    console.log('hello world')
+    return 'hello world'
   },
-  checkdata: function (num) {
-    return /^[0-9]*$/.test(num)
+  checkCName: function (value) {
+    return value && /^[\u4e00-\u9fa5]{2,4}$/.test(value)
+  },
+  checkNumber: function (value) {
+    return value && /^[0-9]*$/.test(value)
   }
 })

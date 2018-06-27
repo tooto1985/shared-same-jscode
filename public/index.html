@@ -3,23 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="tools.js"></script>
-	<script>
-		$(function() {
-			$("[name='num']").on("keyup keydown keypress blur change", function() {
-				if (tools.checkdata($(this).val()))  {
-					$(this).css("background-color", "green");
-				} else {
-					$(this).css("background-color", "red");
-				}
-			})
-		});
-	</script>
+	<script src="index.js"></script>
 </head>
 <body>
-	<form action="/send" method="GET">
-		<input type="text" placeholder="請輸入數字" name="num">
+	<form action="/send" method="POST">
+		<input type="text" placeholder="請輸入中文姓名" name="CName"><br>
+		<input type="text" placeholder="請輸入電話" name="Number"><br>
 		<input type="submit" value="送出">
 	</form>
 </body>
