@@ -6,15 +6,14 @@ var path = require('path')
 var app = express()
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.urlencoded({extended: false}))
-app.get('/api', function (req, res) {
-  console.log(tools.yourfunction())
-  res.send(tools.version)
+app.get('/version', function (req, res) {
+  res.send(`${tools.yourfunction()} ver.${tools.version}`)
 })
 app.post('/send', function (req, res) {
   if (tools.checkCName(req.body.CName) && tools.checkNumber(req.body.Number)) {
     res.send('成功')
   } else {
-    res.send('失敗')
+    res.send('輸入內容有誤')
   }
 })
 app.listen(process.env.PORT || 3000)

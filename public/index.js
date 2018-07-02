@@ -1,5 +1,6 @@
 var $ = window.$
 var tools = window.tools
+var alert = window.alert
 $(function () {
   var checkStatus
   $('input').not("[type='submit']").on('keyup keydown keypress blur change', function () {
@@ -16,7 +17,7 @@ $(function () {
     }).every(function (a) {
       return a === true
     })) {
-      window.alert('輸入訊息有誤')
+      alert('輸入內容有誤')
       e.preventDefault()
     }
   })
